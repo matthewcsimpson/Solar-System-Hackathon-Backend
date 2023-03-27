@@ -17,7 +17,7 @@ app.use((req, _res, next) => {
 });
 
 // GET the main index.
-app.get("/", (_req, res) => {
+app.get("/system", (_req, res) => {
   res.json({ status: "running" });
 });
 
