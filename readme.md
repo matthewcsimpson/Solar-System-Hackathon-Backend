@@ -19,6 +19,7 @@ You can see & access this api here: <https://solar-system-hackathon-backend.hero
 4. Create a `.env` file with the following keys:
 
 ```````
+PORT=<your port of choice here>
 DATABASE_HOST=localhost
 DATABASE_USER=<database username here>
 DATABASE_PASSWORD=<database password here>
@@ -36,3 +37,5 @@ DATABASE_NAME=<database password here>
 7. Spin up the project in development mode!
 
 `$ npm run dev`
+
+8. The project should now be running at http://localhost:PORT
