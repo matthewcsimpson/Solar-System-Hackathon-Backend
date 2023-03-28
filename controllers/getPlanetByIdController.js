@@ -1,4 +1,3 @@
-const express = require("express");
 const knex = require("knex")(require("../knexfile"));
 
 /**
@@ -10,7 +9,7 @@ const getPlanetById = async (req, res) => {
   await knex("planets")
     .where("planet_id", req.params.planet_id)
     .then((planetData) => {
-      res.status(200).json(planetData);
+      res.status(200).json(planetData[0]);
     })
     .catch((err) => {
       console.error("getPlanetById", err);

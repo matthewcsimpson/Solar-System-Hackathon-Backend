@@ -1,5 +1,6 @@
 const starData = require("../seed_data/starData");
 const planetsData = require("../seed_data/planetsData");
+const moonsData = require('../seed_data/moonData')
 
 /**
  * @param { import("knex").Knex } knex
@@ -11,4 +12,7 @@ exports.seed = async function (knex) {
   await knex("star").insert(starData);
   await knex("planets").del();
   await knex("planets").insert(planetsData);
+  await knex("moons").del();
+  await knex("moons").insert(moonsData);
+  
 };

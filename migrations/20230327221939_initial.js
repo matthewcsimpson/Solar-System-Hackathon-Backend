@@ -38,6 +38,30 @@ exports.up = function (knex) {
           .onDelete("cascade")
           .onDelete("cascade");
       })
+      // Moons
+      .createTable("moons", (table) => {
+        table.string("moon_id");
+        table.string("englishName");
+        table.text("nameDetail");
+        table.bigint("perihelion");
+        table.bigint("aphelion");
+        table.float("inclination", 8, 5);
+        table.float("massValue", 8, 5);
+        table.bigint("massExponent");
+        table.float("gravity");
+        table.float("meanRadius");
+        table.float("sideralOrbit");
+        table.float("sideralRotation");
+        table
+          .string("planet_id")
+          .references("planet_id")
+          .inTable("planets")
+          .onUpdate("cascade")
+          .onDelete("cascade");
+        table.string("discoveredBy");
+        table.string("discoveryDate");
+        table.string("bodyType");
+      })
   );
 };
 
@@ -46,19 +70,5 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-  return knex.schema.dropTable("planets").dropTable("star");
+  return knex.schema.dropTable("moons").dropTable("planets").dropTable("star");
 };
-
-// id: "eris",
-// englishName: "136199 Eris",
-// perihelion: 5765732799,
-// aphelion: 14594512904,
-// inclination: 44.0445,
-// massValue: 1.66,
-// massExponent: 22,
-// meanRadius: 1163.0,
-// sideralOrbit: 203830.0,
-// sideralRotation: 25.92,
-// discoveredBy: "Michael E. Brown, Chadwick Trujillo, David L. Rabinowitz",
-// discoveryDate: "05/01/2005",
-// bodyType: "Dwarf Planet",

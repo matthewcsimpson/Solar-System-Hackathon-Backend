@@ -1,4 +1,3 @@
-const express = require("express");
 const knex = require("knex")(require("../knexfile"));
 
 /**
@@ -6,7 +5,7 @@ const knex = require("knex")(require("../knexfile"));
  * @param {Request} _req
  * @param {Response} res
  */
-const getAllPlanetoids = async (_req, res) => {
+const getAllPlanets = async (_req, res) => {
   let result = await knex("planets")
     .select("planet_id", "englishName", "meanRadius", "bodyType", "star_id")
     .then((planetData) => {
@@ -51,7 +50,7 @@ const getAllDwarfPlanets = async (_req, res) => {
  * @param {Request} _req 
  * @param {Response} res 
  */
-const getAllPlanets = async (_req, res) => {
+const getAllLargePlanets = async (_req, res) => {
   let result = await knex("planets")
     .select("planet_id", "englishName", "meanRadius", "bodyType", "star_id")
     .where({bodyType: "Planet"})
@@ -69,4 +68,4 @@ const getAllPlanets = async (_req, res) => {
   res.status(200).json(result);
 };
 
-module.exports = { getAllPlanetoids, getAllDwarfPlanets, getAllPlanets };
+module.exports = { getAllPlanets, getAllDwarfPlanets, getAllLargePlanets };

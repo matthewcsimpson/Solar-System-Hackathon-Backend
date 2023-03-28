@@ -36,6 +36,11 @@ html {
     padding: 5px 10px;
 }
 
+.api_info {
+  border: 1px solid red;
+  padding: 0px 30px;
+
+}
 .api__heading {
     font-size: 2rem;
 }
