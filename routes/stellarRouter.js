@@ -11,7 +11,7 @@ const {
 const { getPlanetById } = require("../controllers/getPlanetByIdController");
 const { getStar } = require("../controllers/getStarController");
 const { getAllMoons, getAllMoonsByPlanet } = require("../controllers/getAllMoonsController");
-const { getMoonById } = require("../controllers/GetMoonByIdController");
+const { getMoonById } = require("../controllers/getMoonByIdController");
 
 // GET all bodies in the stellar system.
 router.get("/", getAllBodies);
