@@ -37,7 +37,9 @@ html {
 }
 
 .api_info {
-  border: 1px solid red;
+  border-top: 1px dotted darkgray;
+  border-bottom: 1px dotted darkgray;
+
   padding: 0px 30px;
 
 }
