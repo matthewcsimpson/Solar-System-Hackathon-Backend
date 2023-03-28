@@ -8,11 +8,12 @@ const knex = require("knex")(require("../knexfile"));
  */
 const getAllBodies = async (_req, res) => {
   let starData = await knex("star")
+    .select("star_id", "englishName", "meanRadius")
     .then((starData) => {
       return starData;
     })
     .catch((err) => {
-      console.error(err);
+      console.error("getAllBodies", err);
       res.json({
         message: "Something went wrong getting planet data",
         error: err,
@@ -20,11 +21,13 @@ const getAllBodies = async (_req, res) => {
     });
 
   let planetsData = await knex("planets")
+    .select("planet_id", "englishName", "meanRadius", "bodyType", "star_id")
+
     .then((planetsData) => {
       return planetsData;
     })
     .catch((err) => {
-      console.error(err);
+      console.error("getAllBodies", err);
       res.json({
         message: "Something went wrong getting planet data",
         error: err,

@@ -31,23 +31,12 @@
                     star: [ {
                         "star_id": string,
                         "englishName": string,
-                        "massValue": value in 10^n kg,
-                        "massExponent": n value for massValue,
                         "meanRadius": int, mean radius distance in km,
                       }],
                     planets: [{
                         "planet_id": "eris",
                         "englishName": "136199 Eris",
-                        "perihelion": furthest distance from the sun in km,
-                        "aphelion": neraest distance from the sun in km,
-                        "inclination": float, angle in degress of the orbit compared to earths,
-                        "massValue": value in 10^n kg,
-                        "massExponent": n value for massValue,
                         "meanRadius": float, mean radius in km,
-                        "sideralOrbit": float, time to orbit the sun in days,
-                        "sideralRotation": float, time to rotate fully, in hours,
-                        "discoveredBy": string,
-                        "discoveryDate": string,
                         "bodyType": enum, "Planet" || "Dwarf Planet",
                         "star_id": "sol" <- this will always be sol, as we only have the one star
                       },],
@@ -60,16 +49,16 @@
             <h2 class="api__heading">Star </h2>
             <p class="api__text"><span class="api__text api__text--bold">Endpoint:</span><span
                     class="api__text api__text--code">/stellar/star</span></p>
-            <p class="api__text">Returns an array of planet objects containig the following details for each:</p>
+            <p class="api__text">Returns an object containing the following data about STAR:</p>
             <pre>
                
-                [{
+                {
                     "star_id": string,
                     "englishName": string,
                     "massValue": value in 10^n kg,
                     "massExponent": n value for massValue,
                     "meanRadius": int, mean radius distance in km,
-                },]
+                }
                 
             </pre>
         </section>
@@ -78,7 +67,7 @@
             <h2 class="api__heading">Planets </h2>
             <p class="api__text"><span class="api__text api__text--bold">Endpoint:</span><span
                     class="api__text api__text--code">/stellar/planets</span></p>
-            <p class="api__text">Returns an array of planet objects containig the following details for each:</p>
+            <p class="api__text">Returns an array of all planet objects containing the following details for each:</p>
             <pre>
                
                 [{
@@ -89,6 +78,7 @@
                     "inclination": float, angle in degress of the orbit compared to earths,
                     "massValue": value in 10^n kg,
                     "massExponent": n value for massValue,
+                    "gravity": float, gravity measured in m/s^2
                     "meanRadius": float, mean radius in km,
                     "sideralRotation": float, time to rotate fully, in hours,
                     "sideralOrbit": float, time to orbit the sun in days,
@@ -97,8 +87,14 @@
                     "bodyType": enum, "Planet" || "Dwarf Planet",
                     "star_id": "sol" <- this will always be sol, as we only have the one star
                 },]
-                
             </pre>
+            <p class="api__text"><span class="api__text api__text--bold">Endpoint:</span><span
+                class="api__text api__text--code"> /stellar/planets/dwarf</span></p>
+        <p class="api__text">As above, but returns an array of all DWARF PLANET objects</p>
+
+        <p class="api__text"><span class="api__text api__text--bold">Endpoint:</span><span
+            class="api__text api__text--code"> /stellar/planets/planet</span></p>
+    <p class="api__text">As above, but returns an array of all PLANET objects</p>
         </section>
 
     </main>

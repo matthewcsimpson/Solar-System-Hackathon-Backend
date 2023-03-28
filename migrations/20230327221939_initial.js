@@ -23,6 +23,7 @@ exports.up = function (knex) {
         table.float("inclination", 8, 5);
         table.float("massValue", 8, 5);
         table.bigint("massExponent");
+        table.float("gravity");
         table.float("meanRadius");
         table.float("sideralOrbit");
         table.float("sideralRotation");
