@@ -2,6 +2,8 @@
 
 this project was originally built as part of a #DearJuniorDev Hackahon, in which each team had a week to build a web app that teaches about the solar system.  
 
+You can see & access this api here: <https://solar-system-hackathon-backend.herokuapp.com>
+
 ## Instructions to run locally
 
 1. Clone this project to your computer. 
