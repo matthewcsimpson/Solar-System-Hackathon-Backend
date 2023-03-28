@@ -1,11 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Solar System API</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Solar System API</title>
 </head>
+
 <body>
-   <h1>Solar System API Data</h1>
+    <main class="main__container">
+        <header class="header">
+            <h1 class="header__heading">Solar System API</h1>
+            <p class="header__text">Developed for the #DearJrDev Quackathon, Week of March 24th, 2023</p>
+        </header>
+
+        <section class="api__section">
+            <h2 class="api__heading">API Details</h2>
+            <p class="api__text"><span class="api__text api__text--bold">API Base URL:</span> <span
+                    class="api__text api__text--code">https://solar-system-hackathon-backend.herokuapp.com</span></p>
+        </section>
+
+        <section class="api__section">
+            <h2 class="api__heading">Return all stellar bodies</h2>
+            <p class="api__text"><span class="api__text api__text--bold">Endpoint:</span><span
+                    class="api__text api__text--code">/stellar</span></p>
+            <p class="api__text">Returns the following details:</p>
+            <pre>
+                {
+                    star: [ {
+                        "star_id": string,
+                        "englishName": string,
+                        "massValue": value in 10^n kg,
+                        "massExponent": n value for massValue,
+                        "meanRadius": int, mean radius distance in km,
+                      }],
+                    planets: [{
+                        "planet_id": "eris",
+                        "englishName": "136199 Eris",
+                        "perihelion": furthest distance from the sun in km,
+                        "aphelion": neraest distance from the sun in km,
+                        "inclination": float, angle in degress of the orbit compared to earths,
+                        "massValue": value in 10^n kg,
+                        "massExponent": n value for massValue,
+                        "meanRadius": float, mean radius in km,
+                        "sideralOrbit": float, time to orbit the sun in days,
+                        "sideralRotation": float, time to rotate fully, in hours,
+                        "discoveredBy": string,
+                        "discoveryDate": string,
+                        "bodyType": enum, "Planet" || "Dwarf Planet",
+                        "star_id": "sol" <- this will always be sol, as we only have the one star
+                      },],
+                    moons: []
+                }
+            </pre>
+        </section>
+
+        <section class="api__section">
+            <h2 class="api__heading">Star </h2>
+            <p class="api__text"><span class="api__text api__text--bold">Endpoint:</span><span
+                    class="api__text api__text--code">/stellar/star</span></p>
+            <p class="api__text">Returns an array of planet objects containig the following details for each:</p>
+            <pre>
+               
+                [{
+                    "star_id": string,
+                    "englishName": string,
+                    "massValue": value in 10^n kg,
+                    "massExponent": n value for massValue,
+                    "meanRadius": int, mean radius distance in km,
+                },]
+                
+            </pre>
+        </section>
+
+        <section class="api__section">
+            <h2 class="api__heading">Planets </h2>
+            <p class="api__text"><span class="api__text api__text--bold">Endpoint:</span><span
+                    class="api__text api__text--code">/stellar/planets</span></p>
+            <p class="api__text">Returns an array of planet objects containig the following details for each:</p>
+            <pre>
+               
+                [{
+                    "planet_id": "eris",
+                    "englishName": "136199 Eris",
+                    "perihelion": furthest distance from the sun in km,
+                    "aphelion": neraest distance from the sun in km,
+                    "inclination": float, angle in degress of the orbit compared to earths,
+                    "massValue": value in 10^n kg,
+                    "massExponent": n value for massValue,
+                    "meanRadius": float, mean radius in km,
+                    "sideralRotation": float, time to rotate fully, in hours,
+                    "sideralOrbit": float, time to orbit the sun in days,
+                    "discoveredBy": string,
+                    "discoveryDate": string,
+                    "bodyType": enum, "Planet" || "Dwarf Planet",
+                    "star_id": "sol" <- this will always be sol, as we only have the one star
+                },]
+                
+            </pre>
+        </section>
+
+    </main>
 </body>
+
 </html>
