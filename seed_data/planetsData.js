@@ -14,6 +14,7 @@ module.exports = [
     discoveredBy: "Michael E. Brown, Chadwick Trujillo, David L. Rabinowitz",
     discoveryDate: "05/01/2005",
     bodyType: "Dwarf Planet",
+    planetType: "Dwarf",
     star_id: "sol",
   },
   {
@@ -31,6 +32,7 @@ module.exports = [
     discoveredBy: "William Herschel",
     discoveryDate: "13/03/1781",
     bodyType: "Planet",
+    planetType: "Ice Giant",
     star_id: "sol",
   },
   {
@@ -48,6 +50,7 @@ module.exports = [
     discoveredBy: "Clyde W. Tombaugh",
     discoveryDate: "18/02/1930",
     bodyType: "Dwarf Planet",
+    planetType: "Dwarf",
     star_id: "sol",
   },
   {
@@ -65,6 +68,7 @@ module.exports = [
     discoveredBy: "Urbain Le Verrier, John Couch Adams, Johann Galle",
     discoveryDate: "23/09/1846",
     bodyType: "Planet",
+    planetType: "Ice Giant",
     star_id: "sol",
   },
   {
@@ -82,6 +86,7 @@ module.exports = [
     discoveredBy: "Michael E. Brown, José Luis Ortiz Moreno",
     discoveryDate: "28/12/2004",
     bodyType: "Dwarf Planet",
+    planetType: "Dwarf",
     star_id: "sol",
   },
   {
@@ -99,6 +104,7 @@ module.exports = [
     discoveredBy: "Michael E. Brown, Chadwick Trujillo, David L. Rabinowitz",
     discoveryDate: "31/03/2005",
     bodyType: "Dwarf Planet",
+    planetType: "Dwarf",
     star_id: "sol",
   },
   {
@@ -116,6 +122,7 @@ module.exports = [
     discoveredBy: "",
     discoveryDate: "",
     bodyType: "Planet",
+    planetType: "Gas Giant",
     star_id: "sol",
   },
   {
@@ -133,6 +140,7 @@ module.exports = [
     discoveredBy: "",
     discoveryDate: "",
     bodyType: "Planet",
+    planetType: "Terrestrial",
     star_id: "sol",
   },
   {
@@ -150,6 +158,7 @@ module.exports = [
     discoveredBy: "",
     discoveryDate: "",
     bodyType: "Planet",
+    planetType: "Terrestrial",
     star_id: "sol",
   },
   {
@@ -167,6 +176,7 @@ module.exports = [
     discoveredBy: "",
     discoveryDate: "",
     bodyType: "Planet",
+    planetType: "Gas Giant",
     star_id: "sol",
   },
   {
@@ -184,6 +194,7 @@ module.exports = [
     discoveredBy: "",
     discoveryDate: "",
     bodyType: "Planet",
+    planetType: "Terrestrial",
     star_id: "sol",
   },
   {
@@ -201,6 +212,7 @@ module.exports = [
     discoveredBy: "",
     discoveryDate: "",
     bodyType: "Planet",
+    planetType: "Terrestrial",
     star_id: "sol",
   },
 ];

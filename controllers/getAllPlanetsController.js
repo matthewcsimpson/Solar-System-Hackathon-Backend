@@ -7,7 +7,7 @@ const knex = require("knex")(require("../knexfile"));
  */
 const getAllPlanets = async (_req, res) => {
   let result = await knex("planets")
-    .select("planet_id", "englishName", "meanRadius", "bodyType", "star_id")
+    .select("planet_id", "englishName", "meanRadius", "bodyType", "planetType", "star_id")
     .then((planetData) => {
       return planetData;
     })
