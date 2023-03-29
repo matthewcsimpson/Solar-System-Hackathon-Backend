@@ -53,6 +53,7 @@ Returns an obect with star details and arrays of planet and moon details.
         "englishName": string,
         "meanRadius": float, mean radius in km,
         "bodyType": enum, "Planet" || "Dwarf Planet",
+        "planetType": enum, "Terrestrial" || "Gas Giant" || "Ice Giant" || "Dwarf",
         "star_id": "sol" <- this will always be sol, as we only have the one star
       },],
     moons: [{
@@ -95,7 +96,8 @@ Returns an array of all twelve planets with the following details:
     "planet_id": string, the id of the planet,
     "englishName": string, the name of the planet,
     "meanRadius": float, radius in km,
-    "bodyType": enum, "Dwarf Planet" || "Planet"
+    "bodyType": enum, "Dwarf Planet" || "Planet",
+    "planetType": enum, "Terrestrial" || "Gas Giant" || "Ice Giant" || "Dwarf",
     "star_id": "sol", <- this will always be 'Sol', as we only have one star
 }]
 ```
@@ -144,6 +146,7 @@ Returns an object with the following details about the specified `:planet_id`.
     "discoveredBy": string, the name(s) of this planets discoverers
     "discoveryDate": string, the date of this planets discovery
     "bodyType": enum (returns as string), "Planet" || "Dwarf Planet",
+    "planetType": enum, "Terrestrial" || "Gas Giant" || "Ice Giant" || "Dwarf",
     "star_id": "sol" <- this will always be sol, as we only have the one star
 }
 ```
@@ -209,6 +212,7 @@ Returns an object with the following details about the specified `:moon_id`:
     "bodyType": "Moon" <- will always be 'Moon'
 }
 ```
+
 ## Instructions to run locally
 
 1. Clone this project to your computer.
