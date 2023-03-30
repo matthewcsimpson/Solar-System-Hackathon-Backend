@@ -24,6 +24,13 @@ const getMoonById = async (req, res) => {
     .where("planets.planet_id", moon.planet_id)
     .then((planetName) => {
       return planetName;
+    })
+    .catch((err) => {
+      console.error("getAllMoons", err);
+      res.json({
+        message: "Something went wrong getting MOONs data",
+        error: err,
+      });
     });
 
   Object.assign(moon, { planetEnglishName: planet[0].englishName });

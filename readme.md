@@ -206,7 +206,8 @@ Returns an object with the following details about the specified `:moon_id`:
     "meanRadius": float, mean radius in km,
     "sideralRotation": float, time to rotate fully, in hours,
     "sideralOrbit": float, time to orbit the sun in days,
-    "planet_id": string, the planet_id of the planet this moon orbits
+    "planet_id": string, the planet_id of the planet this moon orbits,
+    "planetEnglishName": string, the english name of the planet this moon orbits, 
     "discoveredBy": string, the name(s) of this moons discoverers,
     "discoveryDate": string, the date the moon was discovered,
     "bodyType": "Moon" <- will always be 'Moon'
