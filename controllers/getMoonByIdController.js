@@ -2,14 +2,14 @@ const knex = require("knex")(require("../knexfile"));
 
 /**
  * GET all moons
- * @param {Request} req 
- * @param {Respose} res 
+ * @param {Request} req
+ * @param {Respose} res
  */
 const getMoonById = async (req, res) => {
-  knex("moons")
+  let moon = await knex("moons")
     .where("moon_id", req.params.moon_id)
     .then((moonData) => {
-      res.status(200).json(moonData[0]);
+      return moonData[0];
     })
     .catch((err) => {
       console.error("getAllMoons", err);
@@ -18,7 +18,16 @@ const getMoonById = async (req, res) => {
         error: err,
       });
     });
-};
 
+  let planet = await knex("planets")
+    .select("planets.englishName")
+    .where("planets.planet_id", moon.planet_id)
+    .then((planetName) => {
+      return planetName;
+    });
+
+  Object.assign(moon, { planetEnglishName: planet[0].englishName });
+  res.status(200).json(moon);
+};
 
 module.exports = { getMoonById };

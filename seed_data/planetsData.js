@@ -1,7 +1,7 @@
 module.exports = [
   {
     planet_id: "eris",
-    englishName: "136199 Eris",
+    englishName: "Eris",
     perihelion: 5765732799,
     aphelion: 14594512904,
     inclination: 44.0445,
@@ -73,7 +73,7 @@ module.exports = [
   },
   {
     planet_id: "haumea",
-    englishName: "136108 Haumea",
+    englishName: "Haumea",
     perihelion: 5157623774,
     aphelion: 7706399149,
     inclination: 28.19,
@@ -91,7 +91,7 @@ module.exports = [
   },
   {
     planet_id: "makemake",
-    englishName: "136472 Makemake",
+    englishName: "Makemake",
     perihelion: 5671928586,
     aphelion: 7894762625,
     inclination: 29.00685,
