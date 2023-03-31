@@ -39,7 +39,7 @@ https://solar-system-hackathon-backend.herokuapp.com
 GET /stellar
 ```
 
-Returns an obect with star details and arrays of planet and moon details.
+Returns an object with star details and arrays of planet and moon details.
 
 ```
 {
@@ -121,6 +121,14 @@ Returns an array of the eight _planets_ with the same details as above.
 ---
 
 ```
+GET /stellar/planets?sortColumn=<columnName>
+```
+
+Sorts the returned array based on the `columnName` specified
+
+---
+
+```
 GET /stellar/planet/:planet_id
 ```
 
@@ -179,6 +187,14 @@ GET /stellar/moons/:planet_id
 | `planet_id` | `string` | **Required**. Id of planet to filter the moons by |
 
 Returns a list of all the moons orbiting the specified `:planet_id`, with the same details as above.
+
+---
+
+```
+GET /stellar/moons?sortColumn=<columnName>
+```
+
+Returns a list of moons sorted based on the `columnName` specified
 
 ---
 
