@@ -6,6 +6,8 @@ const knex = require("knex")(require("../knexfile"));
  * @param {Response} res
  */
 const getAllBodies = async (_req, res) => {
+  let sortPlanetColumn = _req.query.sortPlanetColumn || "perihelion";
+
   let starData = await knex("star")
     .select("star_id", "englishName", "meanRadius")
     .then((starData) => {
@@ -28,6 +30,7 @@ const getAllBodies = async (_req, res) => {
       "planetType",
       "star_id"
     )
+    .orderBy(sortPlanetColumn)
     .then((planetsData) => {
       return planetsData;
     })
