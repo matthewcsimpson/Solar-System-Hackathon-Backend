@@ -6,9 +6,11 @@ const knex = require("knex")(require("../knexfile"));
  * @param {Response} res
  */
 const getAllMoons = async (_req, res) => {
+  let sortColumn = _req.query.sortColumn || "perihelion";
+
   await knex("moons")
     .select("moon_id", "englishName", "meanRadius", "planet_id")
-
+    .orderBy(sortColumn)
     .then((moonsData) => {
       res.status(200).json(moonsData);
     })
