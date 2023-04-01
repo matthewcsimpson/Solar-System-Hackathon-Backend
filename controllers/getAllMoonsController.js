@@ -2,15 +2,13 @@ const knex = require("knex")(require("../knexfile"));
 
 /**
  * GET all moons
- * @param {Request} _req
+ * @param {Request} req
  * @param {Response} res
  */
-const getAllMoons = async (_req, res) => {
-  let sortColumn = _req.query.sortColumn || "perihelion";
-
+const getAllMoons = async (req, res) => {
   await knex("moons")
     .select("moon_id", "englishName", "meanRadius", "planet_id")
-    .orderBy(sortColumn)
+    .orderBy(req.query.sortColumn || "perihelion")
     .then((moonsData) => {
       res.status(200).json(moonsData);
     })
@@ -27,10 +25,11 @@ const getAllMoonsByPlanet = async (req, res) => {
   await knex("moons")
     .select("moon_id", "englishName", "meanRadius", "planet_id")
     .where("planet_id", req.params.planet_id)
+    .orderBy(req.query.sortColumn || "perihelion")
     .then((moonsData) => {
       res.status(200).json(moonsData);
     })
-    .catch((err) => {
+    .catch((err) => { 
       console.error("getAllMoons", err);
       res.json({
         message: "Something went wrong getting MOONs data",

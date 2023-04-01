@@ -2,15 +2,20 @@ const knex = require("knex")(require("../knexfile"));
 
 /**
  * GET all planet data.
- * @param {Request} _req
+ * @param {Request} req
  * @param {Response} res
  */
-const getAllPlanets = async (_req, res) => {
-  let sortColumn = _req.query.sortColumn || "perihelion";
-
+const getAllPlanets = async (req, res) => {
   let result = await knex("planets")
-    .select("planet_id", "englishName", "meanRadius", "bodyType", "planetType", "star_id")
-    .orderBy(sortColumn)
+    .select(
+      "planet_id",
+      "englishName",
+      "meanRadius",
+      "bodyType",
+      "planetType",
+      "star_id"
+    )
+    .orderBy(req.query.sortColumn || "perihelion")
     .then((planetData) => {
       return planetData;
     })
@@ -27,13 +32,14 @@ const getAllPlanets = async (_req, res) => {
 
 /**
  * GET all dwarf planets
- * @param {Request} _req 
- * @param {Response} res 
+ * @param {Request} req
+ * @param {Response} res
  */
-const getAllDwarfPlanets = async (_req, res) => {
+const getAllDwarfPlanets = async (req, res) => {
   let result = await knex("planets")
     .select("planet_id", "englishName", "meanRadius", "bodyType", "star_id")
-    .where({bodyType: "Dwarf Planet"})
+    .where({ bodyType: "Dwarf Planet" })
+    .orderBy(req.query.sortColumn || "perihelion")
     .then((planetData) => {
       return planetData;
     })
@@ -50,13 +56,14 @@ const getAllDwarfPlanets = async (_req, res) => {
 
 /**
  * GET all planets
- * @param {Request} _req 
- * @param {Response} res 
+ * @param {Request} req
+ * @param {Response} res
  */
-const getAllLargePlanets = async (_req, res) => {
+const getAllLargePlanets = async (req, res) => {
   let result = await knex("planets")
     .select("planet_id", "englishName", "meanRadius", "bodyType", "star_id")
-    .where({bodyType: "Planet"})
+    .where({ bodyType: "Planet" })
+    .orderBy(req.query.sortColumn || "perihelion")
     .then((planetData) => {
       return planetData;
     })
