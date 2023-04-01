@@ -2,10 +2,10 @@ const knex = require("knex")(require("../knexfile"));
 
 /**
  * Function to return all stellar data at once.
- * @param {Request} _req
+ * @param {Request} req
  * @param {Response} res
  */
-const getAllBodies = async (_req, res) => {
+const getAllBodies = async (req, res) => {
   let starData = await knex("star")
     .select("star_id", "englishName", "meanRadius")
     .then((starData) => {
@@ -28,6 +28,7 @@ const getAllBodies = async (_req, res) => {
       "planetType",
       "star_id"
     )
+    .orderBy(req.query.sortColumn || "perihelion")
     .then((planetsData) => {
       return planetsData;
     })
@@ -41,6 +42,8 @@ const getAllBodies = async (_req, res) => {
 
   let moonData = await knex("moons")
     .select("moon_id", "englishName", "meanRadius", "planet_id")
+    .orderBy("planet_id")
+    .orderBy(req.query.sortColumn || "perihelion")
     .then((moonData) => {
       return moonData;
     })
