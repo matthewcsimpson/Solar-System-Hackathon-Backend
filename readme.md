@@ -39,7 +39,7 @@ https://solar-system-hackathon-backend.herokuapp.com
 GET /stellar
 ```
 
-Returns an obect with star details and arrays of planet and moon details.
+Returns an obect with star details and arrays of planet and moon details. Planets are sorted by their perihelion (closest distance to the sun), moons are sorted by their planet and perihelion.
 
 ```
 {
@@ -64,6 +64,21 @@ Returns an obect with star details and arrays of planet and moon details.
     }]
 }
 ```
+
+---
+
+**Alter Sorting**:
+
+```
+GET /stellar?sortColum=columnName
+```
+
+Sorting results can be altered for this endpoint. Moons will always be sorted first by their planet, then by the secondary column. Available columns are:
+
+| columnName    | Description.                         |
+| :------------ | :----------------------------------- |
+| `englishName` | The `englishName` of the body        |
+| `meanRadius`  | The `meanRadius` of the stellar body |
 
 ##### Star Endpoint:
 
@@ -120,6 +135,23 @@ Returns an array of the eight _planets_ with the same details as above.
 
 ---
 
+**Alter Sorting:**
+
+Sorting options can be altered for these endpoints using a `req.query`.
+
+```
+GET /stellar/planets?sortColumn=columnName
+GET /stellar/planets/dwarf?sortColumn=columnName
+GET /stellar/planets/planet?sortColumn=columnName
+```
+
+| columnName    | Description.                         |
+| :------------ | :----------------------------------- |
+| `englishName` | The `englishName` of the body        |
+| `meanRadius`  | The `meanRadius` of the stellar body |
+
+---
+
 ```
 GET /stellar/planet/:planet_id
 ```
@@ -157,7 +189,7 @@ Returns an object with the following details about the specified `:planet_id`.
 GET /stellar/moons
 ```
 
-Returns a list of all the moons that orbit planets in the system with the following details:
+Returns a list of all the moons that orbit planets in the system, sorted by their perihelion (nearest extent to the planet they orbit) with the following details:
 
 ```
 [{
@@ -167,6 +199,19 @@ Returns a list of all the moons that orbit planets in the system with the follow
     "planet_id": string, the planet this moon orbits.
  },]
 ```
+
+**Alter Sorting:**
+
+Sorting options can be altered for these endpoints using a `req.query`.
+
+```
+GET /stellar/moons?sortColumn=columnName
+```
+
+| columnName    | Description.                         |
+| :------------ | :----------------------------------- |
+| `englishName` | The `englishName` of the body        |
+| `meanRadius`  | The `meanRadius` of the stellar body |
 
 ---
 
@@ -179,6 +224,23 @@ GET /stellar/moons/:planet_id
 | `planet_id` | `string` | **Required**. Id of planet to filter the moons by |
 
 Returns a list of all the moons orbiting the specified `:planet_id`, with the same details as above.
+
+**Alter Sorting:**
+
+Sorting options can be altered for these endpoints using a `req.query`.
+
+```
+GET /stellar/moons/:planet_id?sortColumn=columnName
+```
+
+| Parameter   | Type     | Description                                       |
+| :---------- | :------- | :------------------------------------------------ |
+| `planet_id` | `string` | **Required**. Id of planet to filter the moons by |
+
+| columnName    | Description.                         |
+| :------------ | :----------------------------------- |
+| `englishName` | The `englishName` of the body        |
+| `meanRadius`  | The `meanRadius` of the stellar body |
 
 ---
 
@@ -207,7 +269,7 @@ Returns an object with the following details about the specified `:moon_id`:
     "sideralRotation": float, time to rotate fully, in hours,
     "sideralOrbit": float, time to orbit the sun in days,
     "planet_id": string, the planet_id of the planet this moon orbits,
-    "planetEnglishName": string, the english name of the planet this moon orbits, 
+    "planetEnglishName": string, the english name of the planet this moon orbits,
     "discoveredBy": string, the name(s) of this moons discoverers,
     "discoveryDate": string, the date the moon was discovered,
     "bodyType": "Moon" <- will always be 'Moon'
