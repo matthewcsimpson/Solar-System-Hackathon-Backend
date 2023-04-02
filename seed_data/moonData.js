@@ -3,7 +3,7 @@ module.exports = [
     moon_id: "lune",
     englishName: "Moon",
     nameDetail:
-      'The usual English proper name for Earth\'s natural satellite is simply Moon, with a capital M. The noun moon is derived from Old English mōna, which (like all its Germanic cognates) stems from Proto-Germanic *mēnōn, which in turn comes from Proto-Indo-European *mēnsis "month" (from earlier *mēnōt, genitive *mēneses) which may be related to the verb "measure" (of time). Occasionally, the name Luna /ˈluːnə/ is used in scientific writing[23] and especially in science fiction to distinguish the Earth\'s moon from others, while in poetry "Luna" has been used to denote personification of the Moon. Cynthia /ˈsɪnθiə/ is another poetic name, though rare, for the Moon personified as a goddess, while Selene /səˈliːniː/ (literally "Moon") is the Greek goddess of the Moon.',
+      'The usual English proper name for Earth\'s natural satellite is simply Moon, with a capital M. The noun moon is derived from Old English mōna, which (like all its Germanic cognates) stems from Proto-Germanic *mēnōn, which in turn comes from Proto-Indo-European *mēnsis "month" (from earlier *mēnōt, genitive *mēneses) which may be related to the verb "measure" (of time). ',
     perihelion: 363300,
     aphelion: 405500,
     inclination: 5.145,
