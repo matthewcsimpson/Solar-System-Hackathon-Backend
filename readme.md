@@ -60,7 +60,8 @@ Returns an obect with star details and arrays of planet and moon details. Planet
         "moon_id": string,
         "englishName": string,
         "meanRadius": float, mean radius in km
-        "planet_id": string, the planet this moon orbits
+        "planet_id": string, the planet this moon orbits,
+        "planetEnglishName": string, the name of the planet this moon orbits
     }]
 }
 ```
@@ -196,7 +197,9 @@ Returns a list of all the moons that orbit planets in the system, sorted by thei
     "moon_id": string,
     "englishName": string,
     "meanRadius": int, mean radius distance in km,
-    "planet_id": string, the planet this moon orbits.
+    "planet_id": string, the planet this moon orbits,
+    "planetEnglishName": string, the name of the planet this moon orbits
+
  },]
 ```
 
