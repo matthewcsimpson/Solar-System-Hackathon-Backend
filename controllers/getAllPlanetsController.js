@@ -78,4 +78,39 @@ const getAllLargePlanets = async (req, res) => {
   res.status(200).json(result);
 };
 
-module.exports = { getAllPlanets, getAllDwarfPlanets, getAllLargePlanets };
+/**
+ * GET all planet data.
+ * @param {Request} req
+ * @param {Response} res
+ */
+const getAllPlanetsDetail = async (req, res) => {
+  let result = await knex("planets")
+    .select(
+      "planet_id",
+      "englishName",
+      "meanRadius",
+      "bodyType",
+      "perihelion",
+      "aphelion",
+      "sideralOrbit",
+      "sideralRotation",
+      "inclination",
+      "planetType",
+      "star_id"
+    )
+    .orderBy(req.query.sortColumn || "perihelion")
+    .then((planetData) => {
+      return planetData;
+    })
+    .catch((err) => {
+      console.error("getAllPlanets", err);
+      res.json({
+        message: "Something went wrong getting planet data",
+        error: err,
+      });
+    });
+
+  res.status(200).json(result);
+};
+
+module.exports = { getAllPlanets, getAllDwarfPlanets, getAllLargePlanets, getAllPlanetsDetail };
