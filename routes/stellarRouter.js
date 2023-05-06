@@ -7,6 +7,7 @@ const {
   getAllPlanets,
   getAllDwarfPlanets,
   getAllLargePlanets,
+  getAllPlanetsDetail
 } = require("../controllers/getAllPlanetsController");
 const { getPlanetById } = require("../controllers/getPlanetByIdController");
 const { getStar } = require("../controllers/getStarController");
@@ -23,6 +24,7 @@ router.get("/star", getStar);
 router.get("/planets", getAllPlanets);
 router.get("/planets/dwarf", getAllDwarfPlanets);
 router.get("/planets/planet", getAllLargePlanets);
+router.get('/planetsDetail', getAllPlanetsDetail);
 
 // GET a planet by its planet_id
 router.get("/planet/:planet_id", getPlanetById);
